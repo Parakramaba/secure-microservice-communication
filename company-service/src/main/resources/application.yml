@@ -1,6 +1,6 @@
 spring:
   application:
-    name: comapny-service
+    name: company-service
 
   profiles:
     active: local
