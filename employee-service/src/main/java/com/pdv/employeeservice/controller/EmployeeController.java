@@ -18,8 +18,10 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/company-details/{employeeId}")
-    public ResponseEntity<?> getCompanyDetailsOfEmployee(final @PathVariable("employeeId") String employeeId) {
-        return employeeService.getCompanyDetailsOfEmployee(employeeId);
+    // This is a hypothetical API to represent the behavior of the front-end.
+    // In actual case, we mostly call directly to the company service using the employees' current working company id.
+    @GetMapping("/current-company/{employeeId}")
+    public ResponseEntity<?> getCurrentWorkingCompanyOfEmployee(final @PathVariable("employeeId") String employeeId) {
+        return employeeService.getCurrentWorkingCompanyOfEmployee(employeeId);
     }
 }
