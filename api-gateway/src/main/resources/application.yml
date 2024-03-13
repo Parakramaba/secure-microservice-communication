@@ -21,3 +21,8 @@ spring:
           predicates:
             - Path=/api/v1/company/**
 
+        - id: iam-service
+          uri: lb://IAM-SERVICE
+          predicates:
+            - Path=/api/v1/iam/**
+
