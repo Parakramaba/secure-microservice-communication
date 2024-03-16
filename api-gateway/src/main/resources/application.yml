@@ -14,15 +14,14 @@ spring:
         - id: employee-service
           uri: lb://EMPLOYEE-SERVICE
           predicates:
-            - Path=/api/v1/employee/**
+            - Path=/api/employee/v1/**
 
         - id: company-service
           uri: lb://COMPANY-SERVICE
           predicates:
-            - Path=/api/v1/company/**
+            - Path=/api/company/v1/**
 
         - id: iam-service
           uri: lb://IAM-SERVICE
           predicates:
-            - Path=/api/v1/iam/**
-
+            - Path=/api/iam/v1/**

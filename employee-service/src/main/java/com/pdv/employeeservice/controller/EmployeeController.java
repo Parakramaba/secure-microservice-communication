@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * This controller class provide set of API endpoints, which are using to handle employees.
  */
 @RestController
-@RequestMapping("/api/v1/employee/employees")
+@RequestMapping("/v1/employees")
 public class EmployeeController {
 
     @Autowired

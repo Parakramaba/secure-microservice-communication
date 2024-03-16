@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * This controller class provide set of API endpoints, which are using to handle companies.
  */
 @RestController
-@RequestMapping("/api/v1/company/companies")
+@RequestMapping("/v1/companies")
 public class CompanyController {
 
     @Autowired

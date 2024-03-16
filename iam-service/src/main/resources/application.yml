@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /api/iam
+
 spring:
   application:
     name: iam-service

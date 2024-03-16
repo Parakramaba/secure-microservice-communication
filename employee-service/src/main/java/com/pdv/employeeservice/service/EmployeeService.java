@@ -30,7 +30,7 @@ public class EmployeeService {
         // This is just using for representing the external calling to another service.
         CompanyDto currentCompany = webClientBuilder.build()
                 .get()
-                .uri("http://company-service/api/v1/company/companies/{companyId}", employeeCurrentWorkingCompanyId)
+                .uri("http://company-service/api/company/v1/companies/{companyId}", employeeCurrentWorkingCompanyId)
                 .retrieve()
                 .bodyToMono(CompanyDto.class)
                 .block();

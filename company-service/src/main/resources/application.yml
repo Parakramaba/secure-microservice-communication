@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /api/company
+
 spring:
   application:
     name: company-service
