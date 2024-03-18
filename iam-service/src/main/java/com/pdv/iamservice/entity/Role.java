@@ -10,8 +10,7 @@ import java.util.List;
 @Table(name = "role")
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
+@Data
 @Builder
 public class Role implements Serializable {
 
@@ -21,7 +20,7 @@ public class Role implements Serializable {
     private Integer id;
 
     @Column(nullable = false, length = 254)
-    private String roleName;
+    private String name;
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
