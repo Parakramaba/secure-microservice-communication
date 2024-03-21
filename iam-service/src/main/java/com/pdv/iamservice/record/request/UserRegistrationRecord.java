@@ -1,4 +1,4 @@
-package com.pdv.iamservice.record;
+package com.pdv.iamservice.record.request;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -57,7 +57,7 @@ public class GlobalExceptionHandler {
         });
         ErrorDetailsRecord errorDetails = new ErrorDetailsRecord(HttpStatus.BAD_REQUEST.value(),
                 request.getDescription(false),
-                null,
+                "Invalid input data",
                 LocalDateTime.now(),
                 errors);
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
