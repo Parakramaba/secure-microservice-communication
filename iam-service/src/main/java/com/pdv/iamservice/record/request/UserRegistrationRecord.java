@@ -8,4 +8,9 @@ import jakarta.validation.constraints.NotBlank;
 public record UserRegistrationRecord(
         @NotBlank(message = "User name is required") String userName,
         @NotBlank(message = "Password is required") String password) {
+
+    @Override
+    public String toString() {
+        return "UserRegistrationRecord[userName=" + this.userName + ", password=*****]";
+    }
 }

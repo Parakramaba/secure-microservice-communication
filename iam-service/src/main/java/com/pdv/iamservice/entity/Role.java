@@ -10,7 +10,9 @@ import java.util.List;
 @Table(name = "role")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Setter
+@Getter
+@ToString
 @Builder
 public class Role implements Serializable {
 
@@ -23,6 +25,7 @@ public class Role implements Serializable {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
+    @ToString.Exclude
     private List<User> users;
 
 }
