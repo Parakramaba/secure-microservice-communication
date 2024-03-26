@@ -3,6 +3,7 @@ package com.pdv.iamservice.exception;
 import com.pdv.iamservice.record.response.ErrorDetailsRecord;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -62,7 +63,7 @@ public class GlobalExceptionHandler {
                 errors);
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
-    // BAD REQUEST:400
+    // / BAD REQUEST:400
 
     // NOT FOUND:404
     /**
@@ -82,5 +83,23 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
+    /**
+     *
+     * @param ex
+     * @param request
+     * @return
+     */
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<?> handleUsernameNotFoundException(final UsernameNotFoundException ex,
+                                                             final WebRequest request) {
+        ErrorDetailsRecord errorDetails = new ErrorDetailsRecord(HttpStatus.NOT_FOUND.value(),
+                request.getDescription(false),
+                ex.getMessage(),
+                LocalDateTime.now(),
+                null);
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+    // / NOT FOUND:404
 
 }

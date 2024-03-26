@@ -5,6 +5,6 @@ public record AuthRequestRecord(String userName,
 
     @Override
     public String toString() {
-        return "AuthRequestRecord[userName=" + this.userName + "]";
+        return "AuthRequestRecord[userName=" + this.userName + ", password=*****]";
     }
 }

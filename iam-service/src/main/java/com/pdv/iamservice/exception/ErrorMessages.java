@@ -13,6 +13,7 @@ public final class ErrorMessages {
     public static final String USER_NAME_ALREADY_EXISTS_MSG = "The username is already in use";
 
     // AUTHENTICATION
+    public static final String CREDENTIALS_NOT_MATCH_MSG = "The user credentials do not match";
     public static final String JWT_NOT_MATCH_MSG = "JWT does not match";
     public static final String JWT_EXPIRED_MSG = "Your session is expired. Please sign-in again";
 

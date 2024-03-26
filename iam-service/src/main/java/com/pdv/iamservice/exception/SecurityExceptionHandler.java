@@ -6,6 +6,7 @@ import io.jsonwebtoken.security.SignatureException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -19,6 +20,24 @@ import java.time.LocalDateTime;
 public class SecurityExceptionHandler {
 
     // UNAUTHORIZED:401
+    /**
+     *
+     * @param ex object of {@link BadCredentialsException}
+     * @param request {@link WebRequest}
+     * @return
+     */
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<?> handleBadCredentialsException(final BadCredentialsException ex,
+                                                           final WebRequest request) {
+        ErrorDetailsRecord errorDetails = new ErrorDetailsRecord(HttpStatus.UNAUTHORIZED.value(),
+                request.getDescription(false),
+                ErrorMessages.CREDENTIALS_NOT_MATCH_MSG,
+                LocalDateTime.now(),
+                null);
+
+        return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
+    }
+
     /**
      *
      * @param ex
